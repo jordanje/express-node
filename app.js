@@ -1,11 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
-const morgan = require("morgan");
 
 const app = express();
 
-app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/currenttime", function (req, res) {
@@ -49,21 +47,8 @@ app.post("/store-user", function (req, res) {
   res.send(responseData);
  });
 
-//app.listen(3000);
+ 
 
-/*
-function handleRequest(request, response) {
-  if (request.url === "/currenttime") {
-    response.statusCode = 200;
-    response.end("<h1>" + new Date().toISOSString() + "<h1>");
-  } else if (request.url === "/") {
-    response.statusCode = 200;
-    response.end("<h1>Hello World<h1>");
-  }
-}
 
-const server = http.createServer(handleRequest);
-
-server.listen(3000); */
 
 module.exports = app;
